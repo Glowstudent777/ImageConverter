@@ -25,4 +25,4 @@ target_include_directories(${name} PUBLIC
     external/libwebp/include
 )
 
-set_target_properties(${name} PROPERTIES OUTPUT_NAME "ImageConverter")
+set_target_properties(${name} PROPERTIES OUTPUT_NAME "converter")

@@ -55,38 +55,35 @@ Section "Install"
 
   ; ===== PNG Context Menu =====
   WriteRegStr HKLM "Software\Classes\SystemFileAssociations\.png\shell\ImageConvert" "MUIVerb" "Convert Image..."
-  WriteRegStr HKLM "Software\Classes\SystemFileAssociations\.png\shell\ImageConvert" "SubCommands" "ImageConvert.png;ImageConvert.jpg;ImageConvert.webp"
+  WriteRegStr HKLM "Software\Classes\SystemFileAssociations\.png\shell\ImageConvert" "SubCommands" "ImageConvert_png;ImageConvert_jpg;ImageConvert_webp"
   WriteRegStr HKLM "Software\Classes\SystemFileAssociations\.png\shell\ImageConvert" "Icon" "$INSTDIR\icon_png.ico"
 
   ; ===== JPG Context Menu =====
   WriteRegStr HKLM "Software\Classes\SystemFileAssociations\.jpg\shell\ImageConvert" "MUIVerb" "Convert Image..."
-  WriteRegStr HKLM "Software\Classes\SystemFileAssociations\.jpg\shell\ImageConvert" "SubCommands" "ImageConvert.png;ImageConvert.jpg;ImageConvert.webp"
+  WriteRegStr HKLM "Software\Classes\SystemFileAssociations\.jpg\shell\ImageConvert" "SubCommands" "ImageConvert_png;ImageConvert_jpg;ImageConvert_webp"
   WriteRegStr HKLM "Software\Classes\SystemFileAssociations\.jpg\shell\ImageConvert" "Icon" "$INSTDIR\icon_jpg.ico"
 
   ; ===== JPEG Context Menu =====
   WriteRegStr HKLM "Software\Classes\SystemFileAssociations\.jpeg\shell\ImageConvert" "MUIVerb" "Convert Image..."
-  WriteRegStr HKLM "Software\Classes\SystemFileAssociations\.jpeg\shell\ImageConvert" "SubCommands" "ImageConvert.png;ImageConvert.jpg;ImageConvert.webp"
+  WriteRegStr HKLM "Software\Classes\SystemFileAssociations\.jpeg\shell\ImageConvert" "SubCommands" "ImageConvert_png;ImageConvert_jpg;ImageConvert_webp"
   WriteRegStr HKLM "Software\Classes\SystemFileAssociations\.jpeg\shell\ImageConvert" "Icon" "$INSTDIR\icon_jpg.ico"
 
   ; ===== WEBP Context Menu =====
   WriteRegStr HKLM "Software\Classes\SystemFileAssociations\.webp\shell\ImageConvert" "MUIVerb" "Convert Image..."
-  WriteRegStr HKLM "Software\Classes\SystemFileAssociations\.webp\shell\ImageConvert" "SubCommands" "ImageConvert.png;ImageConvert.jpg;ImageConvert.webp"
+  WriteRegStr HKLM "Software\Classes\SystemFileAssociations\.webp\shell\ImageConvert" "SubCommands" "ImageConvert_png;ImageConvert_jpg;ImageConvert_webp"
   WriteRegStr HKLM "Software\Classes\SystemFileAssociations\.webp\shell\ImageConvert" "Icon" "$INSTDIR\icon_webp.ico"
 
   ; ===== CommandStore: Convert to PNG =====
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ImageConvert.png" "" "Convert to PNG"
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ImageConvert.png" "Icon" "$INSTDIR\icon_png.ico"
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ImageConvert.png\command" "" '"$INSTDIR\converter.exe" --to=png "%1"'
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ImageConvert_png" "" "Convert to PNG"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ImageConvert_png\command" "" '"$INSTDIR\converter.exe" --to=png "%1"'
 
   ; ===== CommandStore: Convert to JPG =====
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ImageConvert.jpg" "" "Convert to JPG"
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ImageConvert.jpg" "Icon" "$INSTDIR\icon_jpg.ico"
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ImageConvert.jpg\command" "" '"$INSTDIR\converter.exe" --to=jpg "%1"'
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ImageConvert_jpg" "" "Convert to JPG"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ImageConvert_jpg\command" "" '"$INSTDIR\converter.exe" --to=jpg "%1"'
 
   ; ===== CommandStore: Convert to WEBP =====
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ImageConvert.webp" "" "Convert to WEBP"
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ImageConvert.webp" "Icon" "$INSTDIR\icon_webp.ico"
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ImageConvert.webp\command" "" '"$INSTDIR\converter.exe" --to=webp "%1"'
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ImageConvert_webp" "" "Convert to WEBP"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ImageConvert_webp\command" "" '"$INSTDIR\converter.exe" --to=webp "%1"'
 
   ; ===== Uninstall Information =====
   WriteRegStr HKLM "${UNINSTALL_KEY}" "DisplayName" "${APP_NAME}"
@@ -106,9 +103,9 @@ Section "Uninstall"
   RMDir "$INSTDIR"
 
   ; ===== Remove CommandStore Entries =====
-  DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ImageConvert.png"
-  DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ImageConvert.jpg"
-  DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ImageConvert.webp"
+  DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ImageConvert_png"
+  DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ImageConvert_jpg"
+  DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ImageConvert_webp"
 
   ; ===== Remove Context Menu Entries =====
   DeleteRegKey HKCR "SystemFileAssociations\.png\shell\ImageConvert"
