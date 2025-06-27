@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "filesystem": "cpp",
+        "xstring": "cpp",
+        "forward_list": "cpp",
+        "vector": "cpp",
+        "xlocinfo": "cpp",
+        "xutility": "cpp"
+    }
+}
