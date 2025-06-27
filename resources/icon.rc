@@ -1,0 +1,5 @@
+#include "resource.h"
+
+IDI_PNG_ICO  ICON "../assets/icons/icon_png.ico"
+IDI_JPG_ICO  ICON "../assets/icons/icon_jpg.ico"
+IDI_WEBP_ICO ICON "../assets/icons/icon_webp.ico"
